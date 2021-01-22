@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="DayVsNight.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <!--  Colors  -->
+        <Color x:Key="WhiteColor">#ffffff</Color>
+        <Color x:Key="HeaderColor">#213654</Color>
+        <Color x:Key="ArrowColor">#768ea0</Color>
+        <Color x:Key="BodyTextColor">#95a8b6</Color>
+        <Color x:Key="InputBorderColor">#d2d7dd</Color>
+
+        <!--  Styles  -->
+        <Style x:Key="Header" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-Bold" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+        </Style>
+        <Style x:Key="BodyText" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-Light" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+        </Style>
+        <Style x:Key="SpanBodyText" TargetType="Span">
+            <Setter Property="FontFamily" Value="Poppins-Light" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+        </Style>
+        <Style x:Key="SubHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+        </Style>
+        <Style x:Key="SpanSubHeader" TargetType="Span">
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+        </Style>
+
+        <!--  Implicit Styles  -->
+        <Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="Padding" Value="10" />
+        </Style>
+    </Application.Resources>
+</Application>

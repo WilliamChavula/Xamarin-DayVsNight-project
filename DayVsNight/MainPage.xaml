@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="DayVsNight.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:circleimge="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Source="Background" />
+        <StackLayout Margin="20,60,20,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="AUTO" />
+                </Grid.ColumnDefinitions>
+                <StackLayout>
+                    <Label Style="{StaticResource Header}" Text="Dashboard" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Style="{StaticResource SpanBodyText}" Text="Welcome home,  " />
+                                <Span Style="{StaticResource SpanSubHeader}" Text="David" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <circleimge:CircleImage
+                    x:Name="ProfileImge"
+                    Grid.Column="1"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    Source="Profile"
+                    VerticalOptions="Center"
+                    WidthRequest="50" />
+            </Grid>
+            <Frame
+                Margin="0,20,0,0"
+                Padding="10"
+                BackgroundColor="Transparent"
+                BorderColor="{StaticResource InputBorderColor}"
+                CornerRadius="10"
+                HasShadow="False">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Margin="10,0,0,0"
+                        HorizontalOptions="Center"
+                        Source="Lightning"
+                        VerticalOptions="Center" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="20,0,0,0"
+                        FontSize="14"
+                        Style="{StaticResource SubHeader}"
+                        Text="2 Unchecked Events" />
+                    <Image
+                        Grid.Column="2"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="Center"
+                        Source="Arrow"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!--  Temperature Gauge  -->
+            <Label Style="{StaticResource SubHeader}" Text="Temperature" />
+            <Grid>
+                <Image Aspect="AspectFill" Source="TempGuage" />
+                <StackLayout Margin="20,0,20,0">
+                    <Label
+                        Style="{StaticResource Header}"
+                        Text="23°"
+                        TextColor="{StaticResource WhiteColor}" />
+                    <Label
+                        Margin="0,-10,0,0"
+                        FontSize="14"
+                        Style="{StaticResource SubHeader}"
+                        Text="CELCIUS"
+                        TextColor="{StaticResource WhiteColor}" />
+                </StackLayout>
+                <Label
+                    Margin="20,10,20,0"
+                    FontSize="16"
+                    HorizontalOptions="End"
+                    Style="{StaticResource Header}"
+                    Text="°°°"
+                    TextColor="{StaticResource WhiteColor}" />
+            </Grid>
+
+            <!--  Security  -->
+            <Label Style="{StaticResource SubHeader}" Text="Security" />
+            <CarouselView
+                x:Name="SecuritySection"
+                HeightRequest="150"
+                HorizontalScrollBarVisibility="Never"
+                PeekAreaInsets="20"
+                WidthRequest="150">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="20"
+                            BorderColor="DarkGray"
+                            CornerRadius="5"
+                            HasShadow="False"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+
+
