@@ -83,9 +83,9 @@
 
             <!--  Temperature Gauge  -->
             <Label Style="{StaticResource SubHeader}" Text="Temperature" />
-            <Grid>
-                <local:GaugeControl HeightRequest="200" />
-                <pancakeview:PancakeView
+            <Grid HeightRequest="200">
+                <local:GaugeControl />
+                <!--<pancakeview:PancakeView
                     CornerRadius="10"
                     HeightRequest="150"
                     WidthRequest="150">
@@ -130,7 +130,7 @@
                             Android="25"
                             iOS="75" />
                     </Image.TranslationY>
-                </Image>
+                </Image>-->
             </Grid>
 
             <!--  Security  -->
