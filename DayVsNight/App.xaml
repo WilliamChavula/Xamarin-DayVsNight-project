@@ -10,6 +10,8 @@
         <Color x:Key="ArrowColor">#768ea0</Color>
         <Color x:Key="BodyTextColor">#95a8b6</Color>
         <Color x:Key="InputBorderColor">#d2d7dd</Color>
+        <Color x:Key="TagBackgroundColor">#ffa318</Color>
+        <Color x:Key="UnselectedTabTextColor">#96a7dd</Color>
 
         <!--  Styles  -->
         <Style x:Key="Header" TargetType="Label">
@@ -18,25 +20,46 @@
             <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
         </Style>
         <Style x:Key="BodyText" TargetType="Label">
-            <Setter Property="FontFamily" Value="Poppins-Light" />
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
         </Style>
         <Style x:Key="SpanBodyText" TargetType="Span">
-            <Setter Property="FontFamily" Value="Poppins-Light" />
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
         </Style>
         <Style x:Key="SubHeader" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="22" />
-            <Setter Property="Margin" Value="0,10,0,0" />
+            <Setter Property="Margin" Value="0,20,0,0" />
             <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
         </Style>
         <Style x:Key="SpanSubHeader" TargetType="Span">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+        </Style>
+        <Style x:Key="TagLabel" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="BackgroundColor" Value="{StaticResource TagBackgroundColor}" />
+        </Style>
+        <Style x:Key="TabHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-SemiBold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+        </Style>
+        <Style x:Key="UnselectedTabHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{StaticResource UnselectedTabTextColor}" />
+        </Style>
+        <Style x:Key="UnselectedTabText" TargetType="Label">
+            <Setter Property="FontFamily" Value="Poppins-Regular" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource UnselectedTabTextColor}" />
         </Style>
 
         <!--  Implicit Styles  -->

@@ -3,13 +3,17 @@
     x:Class="DayVsNight.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:circleimge="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
+    xmlns:circleimge="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Image Source="Background" />
+        <Image
+            Grid.RowSpan="2"
+            Aspect="AspectFill"
+            Source="Background" />
         <StackLayout Margin="20,60,20,0">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -73,26 +77,40 @@
             <!--  Temperature Gauge  -->
             <Label Style="{StaticResource SubHeader}" Text="Temperature" />
             <Grid>
-                <Image Aspect="AspectFill" Source="TempGuage" />
-                <StackLayout Margin="20,0,20,0">
-                    <Label
-                        Style="{StaticResource Header}"
-                        Text="23°"
-                        TextColor="{StaticResource WhiteColor}" />
-                    <Label
-                        Margin="0,-10,0,0"
-                        FontSize="14"
-                        Style="{StaticResource SubHeader}"
-                        Text="CELCIUS"
-                        TextColor="{StaticResource WhiteColor}" />
-                </StackLayout>
-                <Label
-                    Margin="20,10,20,0"
-                    FontSize="16"
-                    HorizontalOptions="End"
-                    Style="{StaticResource Header}"
-                    Text="°°°"
-                    TextColor="{StaticResource WhiteColor}" />
+                <pancakeview:PancakeView
+                    CornerRadius="10"
+                    HeightRequest="150"
+                    WidthRequest="150">
+                    <Grid>
+                        <Image Aspect="AspectFill" Source="TempGuage" />
+                        <StackLayout Margin="20,0,20,0">
+                            <Label
+                                Style="{StaticResource Header}"
+                                Text="23°"
+                                TextColor="{StaticResource WhiteColor}" />
+                            <Label
+                                Margin="0,-10,0,0"
+                                FontSize="14"
+                                Style="{StaticResource SubHeader}"
+                                Text="CELCIUS"
+                                TextColor="{StaticResource WhiteColor}" />
+                        </StackLayout>
+                        <Label
+                            Margin="20,10,20,0"
+                            FontSize="16"
+                            HorizontalOptions="End"
+                            Style="{StaticResource Header}"
+                            Text="°°°"
+                            TextColor="{StaticResource WhiteColor}" />
+
+                    </Grid>
+                </pancakeview:PancakeView>
+                <Image
+                    HorizontalOptions="Start"
+                    Source="Thumb"
+                    TranslationX="100"
+                    TranslationY="25"
+                    VerticalOptions="End" />
             </Grid>
 
             <!--  Security  -->
@@ -101,24 +119,77 @@
                 x:Name="SecuritySection"
                 HeightRequest="150"
                 HorizontalScrollBarVisibility="Never"
-                PeekAreaInsets="20"
-                WidthRequest="150">
+                PeekAreaInsets="40"
+                WidthRequest="100">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
                 </CarouselView.ItemsLayout>
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <Frame
-                            Margin="20"
-                            BorderColor="DarkGray"
-                            CornerRadius="5"
-                            HasShadow="False"
-                            HorizontalOptions="Center"
-                            VerticalOptions="CenterAndExpand" />
+                        <pancakeview:PancakeView CornerRadius="10" HorizontalOptions="Fill">
+                            <pancakeview:PancakeView.Shadow>
+                                <pancakeview:DropShadow Offset="1,1" Color="DarkGray" />
+                            </pancakeview:PancakeView.Shadow>
+                            <Grid>
+                                <Image Aspect="AspectFill" Source="{Binding ImageLabel}" />
+                                <Label
+                                    Margin="5"
+                                    Padding="5"
+                                    HorizontalOptions="Start"
+                                    Style="{StaticResource TagLabel}"
+                                    Text="{Binding RoomLabel}"
+                                    VerticalOptions="Start" />
+                            </Grid>
+                        </pancakeview:PancakeView>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
         </StackLayout>
+        <!--  Bottom Tab Layout  -->
+        <ScrollView
+            Grid.Row="1"
+            Margin="20,20,20,40"
+            HorizontalScrollBarVisibility="Never"
+            Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <StackLayout Orientation="Vertical">
+                    <BoxView
+                        BackgroundColor="{StaticResource WhiteColor}"
+                        HeightRequest="2"
+                        WidthRequest="130" />
+                    <Label Style="{StaticResource TabHeader}" Text="Kitchen" />
+                    <Label
+                        Margin="0,-5,0,0"
+                        Style="{StaticResource BodyText}"
+                        Text="5 Active Devices"
+                        TextColor="{StaticResource WhiteColor}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <BoxView
+                        BackgroundColor="{StaticResource UnselectedTabTextColor}"
+                        HeightRequest="2"
+                        WidthRequest="130" />
+                    <Label Style="{StaticResource UnselectedTabHeader}" Text="Study" />
+                    <Label
+                        Margin="0,-5,0,0"
+                        Style="{StaticResource UnselectedTabText}"
+                        Text="2 Active Devices"
+                        TextColor="{StaticResource UnselectedTabTextColor}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <BoxView
+                        BackgroundColor="{StaticResource UnselectedTabTextColor}"
+                        HeightRequest="2"
+                        WidthRequest="130" />
+                    <Label Style="{StaticResource UnselectedTabHeader}" Text="Lounge" />
+                    <Label
+                        Margin="0,-5,0,0"
+                        Style="{StaticResource UnselectedTabText}"
+                        Text="1 Active Devices"
+                        TextColor="{StaticResource UnselectedTabTextColor}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>
 
