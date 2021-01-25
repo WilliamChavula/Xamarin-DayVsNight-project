@@ -14,7 +14,6 @@ namespace DayVsNight
             Rooms = new ObservableCollection<Room>();
             loadRooms();
             BindingContext = this;
-            SecuritySection.ItemsSource = Rooms;
         }
 
         private void loadRooms()
