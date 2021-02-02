@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="DayVsNight.Resources.Themes.LightTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="WhiteColor">#ffffff</Color>
+    <Color x:Key="HeaderColor">#213654</Color>
+    <Color x:Key="ArrowColor">#768ea0</Color>
+    <Color x:Key="BodyTextColor">#95a8b6</Color>
+    <Color x:Key="InputBorderColor">#d2d7dd</Color>
+    <Color x:Key="TagBackgroundColor">#ffa318</Color>
+    <Color x:Key="UnselectedTabTextColor">#476ab5</Color>
+
+
+    <!--  Background Gradients  -->
+    <Color x:Key="BackgroundGradientStartColor">#FFF1EA</Color>
+    <Color x:Key="BackgroundGradientMidColor">#D6D7E3</Color>
+    <Color x:Key="BackgroundGradientEndColor">#F0F6FF</Color>
+
+    <!--  Guage Gradients  -->
+    <Color x:Key="GaugeGradientStartColor">#99C2FF</Color>
+    <Color x:Key="GaugeGradientEndColor">#FB7D80</Color>
+
+    <!--  Background Image  -->
+    <x:String x:Key="MountainImage">mountain_light</x:String>
+</ResourceDictionary>

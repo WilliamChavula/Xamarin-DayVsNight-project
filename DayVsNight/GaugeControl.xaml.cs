@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using DayVsNight.Resources.Themes;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
@@ -14,6 +15,12 @@ namespace DayVsNight
         {
             InitializeComponent();
             Percent = 50;
+            MessagingCenter.Subscribe<ThemeMessage>(this, ThemeMessage.ThemeChanged, (themeMessage) => UpdateTheme());
+        }
+
+        private void UpdateTheme()
+        {
+            TempGaugeCanvas.InvalidateSurface();
         }
 
         private double percent;
@@ -71,6 +78,10 @@ namespace DayVsNight
 
             // position clipPath
             float xPos = info.Width * ((float)percent / 100);
+
+            // clamp the slider min and max values
+            xPos = Math.Min(Math.Max(xPos, 150), info.Width - 150);
+
             float translateX = (xPos - tightBounds.MidX);
             float translateY = info.Height - (tightBounds.Height + bottomPadding);
 
@@ -146,10 +157,15 @@ namespace DayVsNight
 
         private void BackgroundCanvasGradient(SKImageInfo info, SKCanvas canvas)
         {
+            // get the theme
+            SKColor gaugeStartColor = ((Color)Application.Current.Resources["GaugeGradientStartColor"]).ToSKColor();
+            SKColor gaugeEndColor = ((Color)Application.Current.Resources["GaugeGradientEndColor"]).ToSKColor();
+
             backgroundBrush.Shader = SKShader.CreateLinearGradient(new SKPoint(0, 0),
                                 new SKPoint(info.Width, info.Height),
-                                new SKColor[] { Color.FromHex("98C1FF").ToSKColor(),
-                    Color.FromHex("FC7C7E").ToSKColor() }, new float[] { 0, 1 }, SKShaderTileMode.Clamp);
+                                new SKColor[] { gaugeStartColor, gaugeEndColor },
+                                new float[] { 0, 1 },
+                                SKShaderTileMode.Clamp);
 
             SKRect backgroundBounds = new SKRect(0, 0, info.Width, (info.Height - bottomPadding));
             canvas.DrawRoundRect(backgroundBounds, 20, 20, backgroundBrush);
@@ -161,7 +177,7 @@ namespace DayVsNight
             int tickHeight = 100;
             int distanceBetweenTicks = info.Width / numTicks;
 
-            for (int i = 0; i < numTicks; i++)
+            for (int i = 1; i < numTicks; i++)
             {
                 SKPoint start = new SKPoint(i * distanceBetweenTicks, (info.Height - bottomPadding));
                 SKPoint end = new SKPoint(i * distanceBetweenTicks, info.Height - (tickHeight + bottomPadding));

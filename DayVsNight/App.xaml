@@ -11,55 +11,67 @@
         <Color x:Key="BodyTextColor">#95a8b6</Color>
         <Color x:Key="InputBorderColor">#d2d7dd</Color>
         <Color x:Key="TagBackgroundColor">#ffa318</Color>
-        <Color x:Key="UnselectedTabTextColor">#96a7dd</Color>
+        <Color x:Key="UnselectedTabTextColor">#476ab5</Color>
+
+        <!--  Background Gradients  -->
+        <Color x:Key="BackgroundGradientStartColor">#FFF1EA</Color>
+        <Color x:Key="BackgroundGradientMidColor">#D6D7E3</Color>
+        <Color x:Key="BackgroundGradientEndColor">#F0F6FF</Color>
+
+        <!--  Guage Gradients  -->
+        <Color x:Key="GaugeGradientStartColor">#99C2FF</Color>
+        <Color x:Key="GaugeGradientEndColor">#FB7D80</Color>
+
+        <!--  Background Image  -->
+        <x:String x:Key="MountainImage">mountain_light</x:String>
 
         <!--  Styles  -->
         <Style x:Key="Header" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-Bold" />
             <Setter Property="FontSize" Value="30" />
-            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource HeaderColor}" />
         </Style>
         <Style x:Key="BodyText" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource BodyTextColor}" />
         </Style>
         <Style x:Key="SpanBodyText" TargetType="Span">
             <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource BodyTextColor}" />
         </Style>
         <Style x:Key="SubHeader" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="22" />
             <Setter Property="Margin" Value="0,20,0,0" />
-            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource HeaderColor}" />
         </Style>
         <Style x:Key="SpanSubHeader" TargetType="Span">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextColor" Value="{StaticResource HeaderColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource HeaderColor}" />
         </Style>
         <Style x:Key="TagLabel" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource WhiteColor}" />
             <Setter Property="BackgroundColor" Value="{StaticResource TagBackgroundColor}" />
         </Style>
         <Style x:Key="TabHeader" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-SemiBold" />
             <Setter Property="FontSize" Value="16" />
-            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource WhiteColor}" />
         </Style>
         <Style x:Key="UnselectedTabHeader" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="16" />
-            <Setter Property="TextColor" Value="{StaticResource UnselectedTabTextColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource UnselectedTabTextColor}" />
         </Style>
         <Style x:Key="UnselectedTabText" TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins-Regular" />
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="TextColor" Value="{StaticResource UnselectedTabTextColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource UnselectedTabTextColor}" />
         </Style>
 
         <!--  Implicit Styles  -->

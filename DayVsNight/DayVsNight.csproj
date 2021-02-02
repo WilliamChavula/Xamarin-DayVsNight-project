@@ -24,6 +24,7 @@
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Effects\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Themes\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
@@ -40,5 +41,10 @@
     <EmbeddedResource Include="Resources\Images\Thumb.png" />
     <EmbeddedResource Include="Resources\Images\Heat.svg" />
     <EmbeddedResource Include="Resources\Images\Snowflake.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Themes\DarkTheme.xaml.cs">
+      <DependentUpon>DarkTheme.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
